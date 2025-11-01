@@ -1,23 +1,15 @@
-import mongoose from 'mongoose';
+// src/models/Playback.ts
+import mongoose, { Schema } from 'mongoose';
 
-/**
- * Playback document interface - stores last position and state for a user/movie.
- */
-export interface IPlayback extends mongoose.Document {
-  userId: mongoose.Types.ObjectId;
-  movieId: mongoose.Types.ObjectId;
-  position: number;
-  state: 'playing' | 'paused' | 'stopped';
-}
-
-/**
- * Schema: records playback position and state for a user and movie.
- */
-const playbackSchema = new mongoose.Schema<IPlayback>({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  movieId: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true },
+const playbackSchema = new Schema({
+  userId: { type: String, required: true },
+  movieId: { type: String, required: true }, // <── aquí lo cambiamos a String
   position: { type: Number, default: 0 },
-  state: { type: String, enum: ['playing', 'paused', 'stopped'], default: 'stopped' },
+  state: { 
+    type: String, 
+    enum: ['playing', 'paused', 'stopped'], 
+    default: 'stopped' 
+  },
 }, { timestamps: true });
 
-export default mongoose.model<IPlayback>('Playback', playbackSchema);
+export default mongoose.model('Playback', playbackSchema);
