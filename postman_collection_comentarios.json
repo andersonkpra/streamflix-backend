@@ -1,0 +1,50 @@
+{
+  "info": {
+    "_postman_id": "c2e74a61-3e8a-4cc4-a01e-37d5a0cc6b9d",
+    "name": "Comentarios API (localhost)",
+    "description": "Colección para probar el endpoint de comentarios en el backend (sin autenticación).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear comentario",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"movieId\": \"tt0111161\",\n  \"userEmail\": \"usuario@ejemplo.com\",\n  \"content\": \"Excelente película, muy recomendada.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/comentarios",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["comentarios"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener comentarios por movieId",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/comentarios/tt0111161",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["comentarios", "tt0111161"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

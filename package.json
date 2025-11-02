@@ -4,6 +4,9 @@
   "description": "Backend de la plataforma StreamFlix (MP2) con Express y MongoDB Atlas.",
   "main": "dist/server.js",
   "type": "commonjs",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
